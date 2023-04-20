@@ -10,7 +10,6 @@ local Keys = {
 	["NENTER"] = 201, ["N4"] = 108, ["N5"] = 60, ["N6"] = 107, ["N+"] = 96, ["N-"] = 97, ["N7"] = 117, ["N8"] = 61, ["N9"] = 118
 }
 
-ESX                  = nil
 local FirstSpawn     = true
 local LastSkin       = nil
 local PlayerLoaded   = false
@@ -19,13 +18,6 @@ local isCameraActive = false
 local zoomOffset     = 0.0
 local camOffset      = 0.0
 local heading        = 90.0
-
-Citizen.CreateThread(function()
-	while ESX == nil do
-		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-		Citizen.Wait(0)
-	end
-end)
 
 function OpenMenu(submitCb, cancelCb, restrict)
 	local playerPed = PlayerPedId()
